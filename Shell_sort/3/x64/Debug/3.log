@@ -1,0 +1,4 @@
+﻿  3.cpp
+C:\Users\sasha\c++\Lab_2\Shell_sort\3\3.cpp(72,5): warning C4267: инициализация: преобразование из "size_t" в "U"; возможна потеря данных
+C:\Users\sasha\c++\Lab_2\Shell_sort\3\3.cpp(108,17): warning C4244: инициализация: преобразование "ULL" в "U", возможна потеря данных
+  3.vcxproj -> C:\Users\sasha\c++\Lab_2\Shell_sort\3\x64\Debug\3.exe

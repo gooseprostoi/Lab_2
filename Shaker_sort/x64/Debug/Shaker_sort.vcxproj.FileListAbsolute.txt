@@ -1,0 +1,1 @@
+C:\Users\sasha\c++\Lab_2\Shaker_sort\x64\Debug\Shaker_sort.exe

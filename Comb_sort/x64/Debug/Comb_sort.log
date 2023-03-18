@@ -1,0 +1,3 @@
+﻿  Comb_sort.cpp
+C:\Users\sasha\c++\Lab_2\Comb_sort\Comb_sort.cpp(144,17): warning C4244: инициализация: преобразование "ULL" в "U", возможна потеря данных
+  Comb_sort.vcxproj -> C:\Users\sasha\c++\Lab_2\Comb_sort\x64\Debug\Comb_sort.exe

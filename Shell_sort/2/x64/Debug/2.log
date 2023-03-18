@@ -1,0 +1,4 @@
+﻿  2.cpp
+C:\Users\sasha\c++\Lab_2\Shell_sort\2\2.cpp(57,26): warning C4244: =: преобразование "double" в "U", возможна потеря данных
+C:\Users\sasha\c++\Lab_2\Shell_sort\2\2.cpp(91,17): warning C4244: инициализация: преобразование "ULL" в "U", возможна потеря данных
+  2.vcxproj -> C:\Users\sasha\c++\Lab_2\Shell_sort\2\x64\Debug\2.exe
