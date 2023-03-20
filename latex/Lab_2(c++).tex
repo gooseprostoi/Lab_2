@@ -91,7 +91,14 @@
 протестировать отдельные функции.
 
 \section*{Шейкерская сортировка}
-Ниже приведены функции прямого прохода, обратного прохода и шейкерской сортировки.
+Во всех следующих программах использовались обозначения
+
+\begin{lstlisting}[language=C++]
+using U = unsigned;
+using ULL = unsigned long long;
+\end{lstlisting}
+
+Ниже приведены функции прямого прохода, обратного прохода и шейкерской сортировки. 
 
 \begin{lstlisting}[language=C++]
 bool forward_step(U arr[], U const begin_idx, U const end_idx) {
@@ -125,11 +132,12 @@ void shaker_sort(U arr[], U const begin_idx, U const end_idx) {
     while (!sorted) {
         sorted = forward_step(arr, begin_idx, end_idx);
         sorted = backward_step(arr, begin_idx, end_idx);
-        assert(is_sorted(arr, begin_idx, end_idx));
     }
+    assert(is_sorted(arr, begin_idx, end_idx));
 }
 \end{lstlisting}
 
+\newpage
 Проверка того, что массив отсортирован, производилась с помощью функции is\_sorted:
 
 \begin{lstlisting}[language=C++]
@@ -250,7 +258,7 @@ ULL comb_sort(U arr[], U const begin_idx, U const end_idx) {
 
 \section*{Сортировка Шелла}
 Общая функция для сортировки Шелла с некоторым шагом
-\begin{lstlisting}
+\begin{lstlisting}[language=C++]
 ULL shell_sort_i(U arr[], U const begin_idx, U const end_idx, U step) {
     ULL count = 0;
     if (begin_idx + step > end_idx)
@@ -271,7 +279,7 @@ ULL shell_sort_i(U arr[], U const begin_idx, U const end_idx, U step) {
 
 \subsection*{Последовательность $d_{i+1} = d_i / 2, d_1 = N$}
 Для шага $d_{i+1} = d_i / 2, d_1 = N$ функция сортировки Шелла выглядит так
-\begin{lstlisting}
+\begin{lstlisting}[language=C++]
 ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
     ULL count = 0;
     U step = (end_idx - begin_idx + 1);
@@ -284,7 +292,7 @@ ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
 }
 \end{lstlisting}
 
-Предполагая, что при больших $N$ время работы программы приближается к $N^{\alpha}$, определим это $\alpha$. Для этого перейдём к логарифмам, тогда $\ln t = \alpha \ln N$. Получаем, что $\alpha = 1.96$
+Предполагая, что при больших $N$ время работы программы приближается к $C \cdot N^{\alpha}$, определим это $\alpha$. Для этого перейдём к логарифмам, тогда $\ln t = \alpha \ln N +\ln C$. Получаем, что $\alpha = 1.96$
 
 \begin{center}
 \includegraphics[scale=0.6]{Figure_2.pdf}
@@ -294,7 +302,7 @@ ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
 
 \subsection*{Последовательности Хиббарда}
 Проделаем тоже самое. Функция функция сортировки Шелла выглядит так
-\begin{lstlisting}
+\begin{lstlisting}[language=C++]
 ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
     ULL count = 0;
     U i = 0;
@@ -312,7 +320,7 @@ ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
 }
 \end{lstlisting}
 
-Если $\ln t = \alpha \ln N$, то $\alpha = 1.99$
+Если $\ln t = \alpha \ln N + \ln C$, то $\alpha = 1.99$
 
 
 \begin{center}
@@ -324,7 +332,7 @@ ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
 \subsection*{Обратная последовательность Фибоначчи}
 Для обратной последовательности Фибоначчи функция сортировки Шелла выглядит так
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C++]
 ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
     ULL count = 0;
     vector<U> f_arr = fib_arr(end_idx - begin_idx + 1);
@@ -339,7 +347,7 @@ ULL shell_sort(U arr[], U const begin_idx, U const end_idx) {
 
 Здесь проше использовать векторы. Функция fib\_arr нужна, чтобы быстро находить числа Фибоначчи
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C++]
 vector<U> fib_arr(U N) {
     U F_0 = 0; U F_1 = 1;
     U n = 0;
@@ -363,7 +371,7 @@ vector<U> fib_arr(U N) {
 \end{lstlisting}
 
 
-Если $\ln t = \alpha \ln N$, то $\alpha = 1.99$
+Если $\ln t = \alpha \ln N + \ln C$, то $\alpha = 1.99$
 
 
 \begin{center}
@@ -373,7 +381,7 @@ vector<U> fib_arr(U N) {
 Среднее количество перестановок равно $5.07 \cdot 10^8$.
 
 \subsection*{Вывод}
-Получаем, что наиболее эффективная по времени является 1 последовательность, наиболее эффективная по числу перестановок - 2 последовательность.
+Получаем, что наиболее эффективная по времени является 1 последовательность, наиболее эффективная по числу перестановок - 3 последовательность.
 
 
 
