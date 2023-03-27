@@ -127,7 +127,8 @@ int main()
     assert(transposition_data.is_open());
 
     // проверка сортировки расчёской на различных случайно сгенерированных массивах
-    for (int N = 100; N <= 50000; N += 100) {
+    for (int N = 1000; N <= 25000; N += 1000) {
+        cout << N << '\n';
         // создаём массив из N случайных чисел от 0 до MAX_RAND
         U* A = new U[N];
         unsigned int seed = rand();
